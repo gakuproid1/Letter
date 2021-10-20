@@ -1,40 +1,80 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">　
-    <title>お便り帳</title>
-  </head>
+<head>
+  <meta charset="utf-8">    
+  <title>お便り帳</title>
+</head>
 
-  <style>
-    textarea {
+<script type="text/javascript">
+
+  function TextAreaSizeChange() {
+
+  var SettingSize =  document.getElementById("TextareaSettingSize").value;
+
+  var textarea1 = document.getElementById("textarea1");    
+  textarea1.style.width = SettingSize + "mm"
+  textarea1.style.height = SettingSize + "mm"
+
+  var textarea2 = document.getElementById("textarea2");    
+  textarea2.style.width = SettingSize + "mm"
+  textarea2.style.height = SettingSize + "mm"
+  }
+
+  function FontSizeChange1() {
+
+  var SettingSize =  document.getElementById("FontSize1").value;
+
+  var textarea1 = document.getElementById("textarea1");    
+  textarea1.style.fontSize = SettingSize + "px"
+  }
+
+  function FontSizeChange2() {
+
+  var SettingSize =  document.getElementById("FontSize2").value;
+
+  var textarea2 = document.getElementById("textarea2");    
+  textarea2.style.fontSize = SettingSize + "px"
+  }
+
+</script>
+
+<style>
+
+  textarea {
     resize: none;
-    width:55mm;
-    height:55mm;
-    margin: 30px;
+    width:40mm;
+    height:40mm;
     font-size: 15px;
-    } 
+  }
 
-    /* iPhone12解像度 2,532 x 1,170*/
-    
-  </style>
+  .TextareaSettingSize {
+    width: 15mm;
+    height:10mm;
+    font-size: 20px;
+  }
 
-  <body>
-    <br>
-    <textarea name="example"></textarea>  
-    <br>
-    <textarea name="example"></textarea>
-    
-  
+  .FontSize {
+    width: 15mm;
+    height:10mm;
+    font-size: 20px;    
+  }
+
+</style>
+
+<body>    
+
+  <input type="tel" class="TextareaSettingSize" id="TextareaSettingSize"  placeholder="40mm">
+  <a href="javascript:TextAreaSizeChange()">入力項目サイズ変更</a>
+
+  <p><textarea id="textarea1" resize: none></textarea></p>
+  <input type="tel" class="FontSize" id="FontSize1"  placeholder="15px">
+  <a href="javascript:FontSizeChange1()">文字サイズ変更</a>
+
+  <p><textarea id="textarea2" resize: none></textarea></p>
+  <input type="tel" class="FontSize" id="FontSize2"  placeholder="15px">
+  <a href="javascript:FontSizeChange2()">文字サイズ変更</a>
+
+</body>
 
 
-
-  </body>
-
-  
-  <script>
-
-
-
-  </script>
 </html>
