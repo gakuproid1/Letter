@@ -2,6 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">    
+  <link rel="stylesheet" href="style.css">
   <title>お便り帳</title>
 </head>
 
@@ -59,31 +60,48 @@
     font-size: 20px;    
   }
 
+  .nav {
+    display: table;
+      
+}
+.nav_item {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    width: 5%;
+}
+
+.Top{
+	position: absolute; left: 170mm; top: 10mm;
+}
 </style>
 
 <body>    
+ <section class="sheet">
 
+  <a href="FormBranch.php" class="Top">動作検証画面</a> 
+ 
   <input type="tel" class="TextareaSettingSize" id="TextareaSettingSize"  placeholder="50mm">
   <a href="javascript:TextAreaSizeChange()">入力項目サイズ変更</a>
 
+  <ul class="nav">
+
+    <li class="nav_item">
   <p><textarea id="textarea1" resize: none></textarea></p>
   <input type="tel" class="FontSize" id="FontSize1"  placeholder="12px">
   <a href="javascript:FontSizeChange1()">文字サイズ変更</a>
+</li>
 
+  <li class="nav_item">
   <p><textarea id="textarea2" resize: none></textarea></p>
   <input type="tel" class="FontSize" id="FontSize2"  placeholder="12px">
   <a href="javascript:FontSizeChange2()">文字サイズ変更</a>
+</li>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  
-  
-  <br>
-  <br>
-  <a href="FormBranch.html">動作検証</a> 
-  
+</ul>
+
+
+   </section>
 </body>
 
 

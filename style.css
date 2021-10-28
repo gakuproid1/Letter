@@ -1,32 +1,25 @@
-/* A4縦用のベース設定 */
 @page {
-  size: A4 portrait; /* 横の場合はlandscape */
-  margin: 0mm;
+  size: A4;
+  margin: 10mm;
 }
-
-
-/* 各要素の余白リセット */
-*{
-  margin: 0mm;
-  padding: 0mm;
+@media print {
+  body {
+    width: 190mm; /* needed for Chrome */
+  }
 }
-
-
-/* 印刷時の調子を整える */
-body {
-  width: 210mm; /* 用紙の横幅を改めて指定 Chrome用 */
-  -webkit-print-color-adjust: exact;
-  color-adjust: exact;
-  line-height: 1.5em;
-}
-
-/* 印刷1ページ用のコンテンツはここで定義 */
-.page {
-  width: 210mm; /* 用紙の横幅を改めて指定 */
-  height: 296.5mm;/* 高さには0.5mm余裕をもたせる */
+.sheet {
+  width: 210mm;
+  height: 296mm; /* 1mm余裕をもたせる */
   page-break-after: always;
-
-  box-sizing: border-box;
-  padding: 20mm 25mm;/* 用紙の余白 */
-  font-size: 11pt;
+}
+/* プレビュー用のスタイル */
+@media screen {
+  body {
+    background: #eee;
+  }
+  .sheet {
+    background: white; /* 背景を白く */
+    box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
+    margin: 5mm;
+  }
 }
