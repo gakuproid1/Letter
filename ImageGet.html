@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>画像取得</title>
+</head>
+
+
+
+<body>
+  <h1>画像取得</h1>
+  
+
+
+
+  <button class="btn_Download" id="btn_Download" name="Download">ダウンロード</button>
+
+  
+
+
+  <script src="jquery-3.6.0.min.js"></script>
+</body>
+
+<script>
+  
+
+  //ダウンロードボタンクリック時
+  $('#btn_Download').on('click', function() {
+
+    var TargetDir = JSON.parse('<?php echo $json_TargetDir; ?>');
+
+    var ImageName_array = JSON.parse('<?php echo $json_ImageName_array; ?>');
+
+    // 配列の中身を一つずつ処理
+    $.each(ImageName_array, function(index, val) {
+
+      var ImageName = (val);
+
+      var a = document.createElement('a');
+      a.download = ImageName;
+      a.href = TargetDir + ImageName;
+
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+
+    });
+
+
+
+
+  });
+</script>
+
+</html>
