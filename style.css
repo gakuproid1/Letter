@@ -9,7 +9,7 @@
 }
 .sheet {
   width: 210mm;
-  height: 296mm; /* 1mm余裕をもたせる */
+  height: 296mm; /* 1mm余裕をもたせる */ 
   page-break-after: always;
 }
 /* プレビュー用のスタイル */
@@ -20,6 +20,6 @@
   .sheet {
     background: white; /* 背景を白く */
     box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
-    margin: 5mm;
+    margin: 10mm;
   }
 }
