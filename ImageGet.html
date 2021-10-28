@@ -15,9 +15,9 @@
 
 
 
-  <button class="btn_Download" id="btn_Download" name="Download">ダウンロード</button>
-
   
+
+  <a href="javascript:downloadImgs()">画像ダウンロード</a>
 
 
   <script src="jquery-3.6.0.min.js"></script>
@@ -26,32 +26,42 @@
 <script>
   
 
-  //ダウンロードボタンクリック時
-  $('#btn_Download').on('click', function() {
+  
+// 一括画像ダウンロード
+function downloadImgs(){
+  downloadImg('1.png');
+  downloadImg('2.png');
+  downloadImg('3.png');
+}
 
-    var TargetDir = JSON.parse('<?php echo $json_TargetDir; ?>');
+// 画像ダウンロード
+function downloadImg(fileName){
+  // ファイル情報
+  const url = 'Images/' + fileName;
 
-    var ImageName_array = JSON.parse('<?php echo $json_ImageName_array; ?>');
+  // IE用
+  if(window.navigator.msSaveOrOpenBlob){
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.onload = function(){
+      if(xhr.status !== 200){
+        return false;
+      }
+      window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
+    }
+    xhr.send();
+  }else{ // Chromeなど
+    let link = document.createElement('a');
+    link.href= url;
+    link.download = fileName;
 
-    // 配列の中身を一つずつ処理
-    $.each(ImageName_array, function(index, val) {
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+}
 
-      var ImageName = (val);
-
-      var a = document.createElement('a');
-      a.download = ImageName;
-      a.href = TargetDir + ImageName;
-
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-
-    });
-
-
-
-
-  });
 </script>
 
 </html>
